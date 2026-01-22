@@ -1,13 +1,22 @@
+import { NavLink } from "react-router";
 import { ModeToggle } from "./components/mode-toggle";
-import { ThemeProvider } from "./components/theme-provider";
+import { Button } from "./components/ui/button";
+import { MoveRight } from "lucide-react";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div className="flex items-center justify-center min-h-svh">
+    <div className="min-h-svh flex flex-col gap-2 items-center justify-center">
+      <h1 className="text-3xl font-bold">This is the Home Page</h1>
+      <div className="flex gap-4 items-center">
         <ModeToggle />
+        <NavLink to="/test">
+          <Button>
+            Go to Test Page
+            <MoveRight />
+          </Button>
+        </NavLink>
       </div>
-    </ThemeProvider>
+    </div>
   );
 }
 
