@@ -1,11 +1,11 @@
 import { NavLink } from "react-router";
-import { ModeToggle } from "./components/mode-toggle";
+import { ModeToggle } from "./components/theme/mode-toggle";
 import { Button } from "./components/ui/button";
 import { MoveRight } from "lucide-react";
 
 function App() {
   return (
-    <div className="min-h-svh flex flex-col gap-2 items-center justify-center">
+    <div>
       <h1 className="text-3xl font-bold">This is the Home Page</h1>
       <div className="flex gap-4 items-center">
         <ModeToggle />
