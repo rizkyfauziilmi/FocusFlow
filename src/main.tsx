@@ -4,9 +4,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { TestPage } from "./components/pages/test/test";
 import { AppLayout } from "./components/layouts/app-layout";
 import { ContentLayout } from "./components/layouts/content-layout";
+import { TodoPage } from "./components/pages/todo/todo";
+import { NotFoundAlert } from "./components/alert/not-found-alert";
+import { CenteredLayout } from "./components/layouts/centered-layout";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -16,7 +18,10 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route element={<AppLayout />}>
             <Route element={<ContentLayout />}>
               <Route index element={<App />} />
-              <Route path="test" element={<TestPage />} />{" "}
+              <Route path="todo" element={<TodoPage />} />
+            </Route>
+            <Route element={<CenteredLayout />}>
+              <Route path="*" element={<NotFoundAlert />} />
             </Route>
           </Route>
         </Routes>

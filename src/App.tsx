@@ -1,21 +1,7 @@
-import { NavLink } from "react-router";
-import { ModeToggle } from "./components/theme/mode-toggle";
-import { Button } from "./components/ui/button";
-import { MoveRight } from "lucide-react";
-
 function App() {
   return (
     <div>
-      <h1 className="text-3xl font-bold">This is the Home Page</h1>
-      <div className="flex gap-4 items-center">
-        <ModeToggle />
-        <NavLink to="/test">
-          <Button>
-            Go to Test Page
-            <MoveRight />
-          </Button>
-        </NavLink>
-      </div>
+      <h1 className="text-3xl font-bold">Welcome to FocusFlow!</h1>
     </div>
   );
 }

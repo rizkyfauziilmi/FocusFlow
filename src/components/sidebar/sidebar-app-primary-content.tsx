@@ -1,6 +1,7 @@
 import {
   AudioWaveform,
   CalendarDays,
+  House,
   ListTodo,
   Notebook,
   Timer,
@@ -13,53 +14,69 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "../ui/sidebar";
+import { NavLink, useLocation } from "react-router";
 
 // Menu items.
 const items = [
   {
+    title: "Home",
+    url: "",
+    icon: House,
+  },
+  {
     title: "To-Do",
-    url: "#",
+    url: "todo",
     icon: ListTodo,
   },
   {
     title: "Pomodoro Timer",
-    url: "#",
+    url: "pomodoro",
     icon: Timer,
   },
   {
     title: "Ambient",
-    url: "#",
+    url: "ambient",
     icon: AudioWaveform,
   },
   {
     title: "Calendar",
-    url: "#",
+    url: "calendar",
     icon: CalendarDays,
   },
   {
     title: "Notes",
-    url: "#",
+    url: "notes",
     icon: Notebook,
   },
   {
     title: "Integrations",
-    url: "#",
+    url: "integrations",
     icon: Unplug,
   },
 ];
 
 export function SidebarAppPrimaryContent() {
+  let location = useLocation();
+
+  function isActive(url: string) {
+    return location.pathname === `/${url}`;
+  }
+
   return (
     <SidebarGroup className="border-t">
       <SidebarGroupContent>
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton tooltip={item.title} asChild>
-                <a href={item.url}>
+              <SidebarMenuButton
+                tooltip={item.title}
+                asChild
+                isActive={isActive(item.url)}
+              >
+                <NavLink to={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
-                </a>
+                </NavLink>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

@@ -6,7 +6,7 @@ export function AppLayout() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main>
+      <main className="min-h-screen w-full">
         <Outlet />
       </main>
     </SidebarProvider>

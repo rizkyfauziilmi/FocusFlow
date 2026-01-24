@@ -5,6 +5,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "../ui/sidebar";
+import { NavLink } from "react-router";
 
 export function SidebarAppHeader() {
   return (
@@ -15,10 +16,10 @@ export function SidebarAppHeader() {
             asChild
             className="data-[slot=sidebar-menu-button]:p-1.5!"
           >
-            <a href="#">
+            <NavLink to="/">
               <LayoutDashboard className="size-5!" />
               <span className="text-base font-semibold">FocusFlow</span>
-            </a>
+            </NavLink>
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarMenu>
